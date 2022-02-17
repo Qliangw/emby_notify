@@ -1,0 +1,2 @@
+仅适用于windows系统，linux系统要把bat改成sh脚本，怎么改别问我，因为我也不懂linux
+                                                                                                                ---疯子

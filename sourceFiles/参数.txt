@@ -1,0 +1,12 @@
+播放电影
+"%username%" "%item.name%（%item.productionyear%）"
+播放电视剧
+"%username%" "%series.name%-S%season.number%E%episode.number%"
+登录失败
+%username% %device.remote.ipaddress% %password%
+登录成功
+%username% %device.remote.ipaddress%
+电影入库
+"%item.name%（%item.productionyear%）" "%item.overview%"
+电视剧入库
+"%series.name%--S%season.number%E%episode.number%" "%item.overview%"
