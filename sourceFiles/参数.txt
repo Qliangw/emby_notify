@@ -1,12 +1,12 @@
-²¥·ÅµçÓ°
-"%username%" "%item.name%£¨%item.productionyear%£©"
-²¥·ÅµçÊÓ¾ç
+æ’­æ”¾ç”µå½±
+"%username%" "%item.name%ï¼ˆ%item.productionyear%ï¼‰"
+æ’­æ”¾ç”µè§†å‰§
 "%username%" "%series.name%-S%season.number%E%episode.number%"
-µÇÂ¼Ê§°Ü
+ç™»å½•å¤±è´¥
 %username% %device.remote.ipaddress% %password%
-µÇÂ¼³É¹¦
+ç™»å½•æˆåŠŸ
 %username% %device.remote.ipaddress%
-µçÓ°Èë¿â
-"%item.name%£¨%item.productionyear%£©" "%item.overview%"
-µçÊÓ¾çÈë¿â
+ç”µå½±å…¥åº“
+"%item.name%ï¼ˆ%item.productionyear%ï¼‰" "%item.overview%"
+ç”µè§†å‰§å…¥åº“
 "%series.name%--S%season.number%E%episode.number%" "%item.overview%"
