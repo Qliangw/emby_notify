@@ -11,8 +11,8 @@ TOOLS_DIR=${BASE_ROOT}/tools
 cd ${BASE_ROOT}
 RET=$("${TOOLS_DIR}"/curl -s https://qyapi.weixin.qq.com/cgi-bin/gettoken?"corpid="${CORPID}"&corpsecret="${CORP_SECRET}"")
 KEY=$(echo ${RET} | "${TOOLS_DIR}"/jq -r .access_token)
-if [[ ${MEDIA_ID} == "" ]]; then
-    cat>tmpFile<<EOF
+if [ ! -n $MEDIA_ID  ]; then
+cat>tmpFile<<EOF
 {
     "touser" : "${TOUSER}",
     "msgtype" : "text",
@@ -23,8 +23,8 @@ if [[ ${MEDIA_ID} == "" ]]; then
     }
 }
 EOF
-	else
-		cat>tmpFile<<EOF
+else
+cat>tmpFile<<EOF
 {
    "touser" : "${TOUSER}",
    "msgtype" : "mpnews",
