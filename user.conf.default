@@ -1,0 +1,6 @@
+export CORPID=""
+export CORP_SECRET=""
+export AGENTID=""
+export MEDIA_ID=""
+export TOUSER=""
+

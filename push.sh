@@ -1,14 +1,8 @@
 #!/bin/sh
-
-CORPID=""
-CORP_SECRET=""
-AGENTID=""
-MEDIA_ID=""
-TOUSER=""
-
 BASE_ROOT=$(cd "$(dirname "$0")";pwd)
 TOOLS_DIR=${BASE_ROOT}/tools
 cd ${BASE_ROOT}
+. ./user.conf
 RET=$("${TOOLS_DIR}"/curl -s https://qyapi.weixin.qq.com/cgi-bin/gettoken?"corpid="${CORPID}"&corpsecret="${CORP_SECRET}"")
 KEY=$(echo ${RET} | "${TOOLS_DIR}"/jq -r .access_token)
 if [ ! -n $MEDIA_ID  ]; then
