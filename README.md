@@ -14,7 +14,7 @@
 1. 打开emby服务端的设置->插件
 2. 安装 [Emby Scripter-X ](https://github.com/AnthonyMusgrove/Emby-ScripterX "Emby Scripter-X ") ，重启emby服务器，若已安装请跳过步骤1、2
 3. 下载该脚本库到本地，放入emby有权限读取到的位置
-3. 配置push.sh脚本中企业微信的参数（目前仅支持这一个通知方式）[参考这里](http://note.youdao.com/s/HMiudGkb "参考这里")
+3. 复制一份user.conf.default重命名为user.conf配置脚本中企业微信的参数（目前仅支持这一个通知方式）[参考这里](http://note.youdao.com/s/HMiudGkb "参考这里")
 3. **请仔细参考[sourceFiles文件](https://github.com/Qliangw/emby_notify/tree/main/sourceFiles "sourceFiles文件")中的截图**，把cmd命令更换为/bin/sh，运行的脚本更换为脚本路径及脚本名称即可
 
 ### 播放电影填写示例
