@@ -10,3 +10,5 @@ export PUSHPLUS_GROUP=""
 # 默认是wechat，可选【wechat/webhook/cp/mail】 详情：https://www.pushplus.plus/push1.html
 # 仅仅测试了wechat模式，其他未测试。
 export PUSHPLUS_CHANNEL="wechat"
+# bark配置
+BARK_KEY=""

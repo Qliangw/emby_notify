@@ -78,6 +78,12 @@ EOF
     rm ${BASE_ROOT}/tmp_pushplus
 }
 
+function bark()
+{
+    BARK_URL="https://api.day.app/${BARK_KEY}/${TITLE}/${DIGE}"
+    "${TOOLS_DIR}"/curl --location --request GET "${BARK_URL}"
+}
+
 
 if [ ! -n "${CORP_SECRET}" ]; then
     echo "未配置企业微信参数或者配置不全，跳过通知！"
@@ -90,3 +96,10 @@ if [ ! -n "${PUSHPLUS_TOKEN}" ]; then
 else
     pushplus
 fi
+
+if [ ! -n "${BARK_KEY}" ]; then
+    echo "未配置Bark参数，跳过通知！"
+else
+    bark
+fi
+

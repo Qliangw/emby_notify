@@ -15,7 +15,7 @@
 - [x] 登录失败
 - [x] 媒体入库
 - [x] 播放媒体
-- [x] 支持[企业微信](https://work.weixin.qq.com/) 、[Pushplus](https://www.pushplus.plus/)通知
+- [x] 支持[企业微信](https://work.weixin.qq.com/) 、[Pushplus](https://www.pushplus.plus/)、[Bark](https://github.com/Finb/Bark)(仅iOS)通知
 
 **TODO**
 
