@@ -3,22 +3,29 @@ BASE_ROOT=$(cd "$(dirname "$0")";pwd)
 TOOLS_DIR=${BASE_ROOT}/tools
 cd ${BASE_ROOT}
 . ./user.conf
-RET=$("${TOOLS_DIR}"/curl -s https://qyapi.weixin.qq.com/cgi-bin/gettoken?"corpid="${CORPID}"&corpsecret="${CORP_SECRET}"")
-KEY=$(echo ${RET} | "${TOOLS_DIR}"/jq -r .access_token)
-if [ ! -n $MEDIA_ID  ]; then
-cat>tmpFile<<EOF
+TITLE="$1"
+DIGE="$2"
+CONTENT="$3"
+
+function qywx()
+{
+    RET=$("${TOOLS_DIR}"/curl -s https://qyapi.weixin.qq.com/cgi-bin/gettoken?"corpid="${CORPID}"&corpsecret="${CORP_SECRET}"")
+    KEY=$(echo ${RET} | "${TOOLS_DIR}"/jq -r .access_token)
+    
+    if [ ! -n $MEDIA_ID  ]; then
+        cat>tmp_qywx<<EOF
 {
     "touser" : "${TOUSER}",
     "msgtype" : "text",
     "agentid" : "${AGENTID}",
     "text" :
     {
-        "content" : "$1"
+        "content" : "${CONTENT}"
     }
 }
 EOF
-else
-cat>tmpFile<<EOF
+    else
+        cat>tmp_qywx<<EOF
 {
    "touser" : "${TOUSER}",
    "msgtype" : "mpnews",
@@ -26,12 +33,12 @@ cat>tmpFile<<EOF
    "mpnews" : {
        "articles":[
            {
-               "title": "$1", 
+               "title": "${TITLE}", 
                "thumb_media_id": "${MEDIA_ID}",
                "author": "Emby通知",
                "content_source_url": "URL",
-               "digest": "$2",
-               "content": "$3"
+               "digest": "${DIGE}",
+               "content": "${CONTENT}"
             }
        ]
    },
@@ -42,8 +49,44 @@ cat>tmpFile<<EOF
 }
 EOF
 fi
+    
+    "${TOOLS_DIR}"/curl -d @tmp_qywx -XPOST https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token="${KEY}"
+    echo ""
+    echo "删除临时文件"
+    rm ${BASE_ROOT}/tmp_qywx
+}
 
-"${TOOLS_DIR}"/curl -d @tmpFile -XPOST https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token="${KEY}"
-echo ""
-echo "删除临时文件"
-rm ${BASE_ROOT}/tmpFile
+function pushplus()
+{
+    echo "token:" "${PUSHPLUS_TOKEN}"
+    cat>tmp_pushplus<<EOF
+{
+    "token": "${PUSHPLUS_TOKEN}",
+    "title": "${TITLE}",
+    "content": "${CONTENT}",
+    "template": "html",
+    "topic": "${PUSHPLUS_GROUP}",
+    "channel": "${PUSHPLUS_CHANNEL}"
+}
+EOF
+
+    echo $(cat tmp_pushplus)
+    "${TOOLS_DIR}"/curl --location --request POST 'http://www.pushplus.plus/send' \
+    -H 'Content-Type: application/json' \
+    -d @tmp_pushplus
+    
+    rm ${BASE_ROOT}/tmp_pushplus
+}
+
+
+if [ ! -n "${CORP_SECRET}" ]; then
+    echo "未配置企业微信参数或者配置不全，跳过通知！"
+else
+    qywx
+fi
+
+if [ ! -n "${PUSHPLUS_TOKEN}" ]; then
+    echo "未配置pushplus参数，跳过通知！"
+else
+    pushplus
+fi

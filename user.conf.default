@@ -1,6 +1,12 @@
+# 企业微信配置
 export CORPID=""
 export CORP_SECRET=""
 export AGENTID=""
 export MEDIA_ID=""
 export TOUSER=""
-
+# pushplus配置
+export PUSHPLUS_TOKEN=""
+export PUSHPLUS_GROUP=""
+# 默认是wechat，可选【wechat/webhook/cp/mail】 详情：https://www.pushplus.plus/push1.html
+# 仅仅测试了wechat模式，其他未测试。
+export PUSHPLUS_CHANNEL="wechat"

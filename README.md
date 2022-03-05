@@ -15,7 +15,7 @@
 - [x] 登录失败
 - [x] 媒体入库
 - [x] 播放媒体
-- [x] **仅**支持企业微信 
+- [x] 支持[企业微信](https://work.weixin.qq.com/) 、[Pushplus](https://www.pushplus.plus/)通知
 
 **TODO**
 
