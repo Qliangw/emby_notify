@@ -69,8 +69,25 @@ function display_help()
 
 function test()
 {
-    echo "base_root:" $BASE_ROOT
-    echo "TMDB_API_KEY:" $TMDB_API_KEY
+    echo "base_root:" $BASE_ROOT >> ./log.txt
+    echo "TMDB_API_KEY:" $TMDB_API_KEY >> ./log.txt
+    
+    TITLE="测试通知"
+    MSG="内容：无\n时间：$(date +'%H:%M:%S')"
+    IMG_PUSH=$DEFAULT_PIC
+    parse_msg
+    push_all
+}
+
+function get_new_str()
+{
+    len_old_str=${#old_str}
+    echo "字符串长度：" "${len_old_str}" >> ./log.txt
+    if [ $len_old_str -gt 120 ]; then
+        echo "字符串大约120"
+        new_str="${old_str:0:120}...."
+    fi
+    echo ""
 }
 
 
@@ -111,9 +128,14 @@ elif [ $1 = "AM" ]; then
     if [ $MOV_MSG = "%item.overview%" ]; then
     MOV_MSG="暂无简介"
     fi
+    old_str=$MOV_MSG
+    get_new_str
+    MOV_MSG=$new_str
+
     MOV_NAME="$(echo "$MOV_NAME" | sed 's/[ ][ ]*//g')"
+
     MSG="剧情：$MOV_MSG\n时间：$(date +'%H:%M:%S')"
-    TITLE="电源入库：$MOV_NAME" >> ./log.txt
+    TITLE="电影入库：$MOV_NAME" >> ./log.txt
     parse_msg
     push_all
 elif [ $1 = "AT" ]; then
@@ -130,6 +152,10 @@ elif [ $1 = "AT" ]; then
     if [ $TV_MSG = "%item.overview%" ]; then
         TV_MSG="暂无简介"
     fi
+
+    old_str=$TV_MSG
+    get_new_str
+    TV_MSG=$new_str
     
     TV_NAME="$(echo "$TV_NAME" | sed 's/[ ][ ]*//g')"
     TV_MSG="$(echo "$TV_MSG" | sed 's/[ ][ ]*//g')"
