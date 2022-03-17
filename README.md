@@ -16,13 +16,14 @@
 - [x] 媒体入库
 - [x] 播放媒体
 - [x] 支持[企业微信](https://work.weixin.qq.com/) 、[Pushplus](https://www.pushplus.plus/)、[Bark](https://github.com/Finb/Bark)(仅iOS)通知
+- [x] 企业微信通知附带海报图
 
 **TODO**
 
-- [ ] 添加其他通知工具的适配
-- [ ] 通知附带海报图
+- [x] 添加其他通知工具的适配
+- [x] 通知附带海报图
 - [ ] 剧集通知模式为[S01E01] 或者 [第一季 第一集]【可选】
-- [ ] 整合脚本，使其配置通用简洁
+- [x] 整合脚本，使其配置通用简洁
 
 ## 使用方法
 
@@ -51,7 +52,7 @@
 ### 参数
 |功能|对应脚本|参数|
 |---|---|---|
-|播放电影 | [playmov.sh](https://github.com/Qliangw/emby_notify/blob/main/playmov.sh) | "%username%" "%item.name%（%item.productionyear%）"|
+|播放电影 | [playmov.sh](https://github.com/Qliangw/emby_notify/blob/main/playmov.sh) | "%username%" "%item.name%（%item.productionyear%）" |
 |播放电视剧| [playtv.sh](https://github.com/Qliangw/emby_notify/blob/main/playtv.sh) |"%username%" "%series.name%-S%season.number%E%episode.number%"|
 |登录失败 | [loginfailed.sh](https://github.com/Qliangw/emby_notify/blob/main/loginfailed.sh) | %username% %device.remote.ipaddress% %password%|
 |登录成功| [login.sh](https://github.com/Qliangw/emby_notify/blob/main/login.sh) |%username% %device.remote.ipaddress%|
@@ -62,4 +63,5 @@
 
 ## 鸣谢
 
-感谢某群友提供的win版脚本。
+- 感谢某群友提供的win版脚本。
+- 感谢 [Hiccup](https://github.com/Hiccup90) 大佬提供的tmdb海报脚本
