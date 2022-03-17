@@ -1,55 +1,43 @@
 #!/bin/sh
+
 BASE_ROOT=$(cd "$(dirname "$0")";pwd)
 TOOLS_DIR=${BASE_ROOT}/tools
 cd ${BASE_ROOT}
 . ./user.conf
+
+
 TITLE="$1"
 DIGE="$2"
-CONTENT="$3"
+PIC_URL="$4"
+
 
 function qywx()
 {
     RET=$("${TOOLS_DIR}"/curl -s https://qyapi.weixin.qq.com/cgi-bin/gettoken?"corpid="${CORPID}"&corpsecret="${CORP_SECRET}"")
     KEY=$(echo ${RET} | "${TOOLS_DIR}"/jq -r .access_token)
+
     
-    if [ ! -n $MEDIA_ID  ]; then
-        cat>tmp_qywx<<EOF
-{
-    "touser" : "${TOUSER}",
-    "msgtype" : "text",
-    "agentid" : "${AGENTID}",
-    "text" :
-    {
-        "content" : "${CONTENT}"
-    }
-}
-EOF
-    else
-        cat>tmp_qywx<<EOF
+
+    cat>tmp_qywx<<EOF
 {
    "touser" : "${TOUSER}",
-   "msgtype" : "mpnews",
+   "msgtype" : "news",
    "agentid" : "${AGENTID}",
-   "mpnews" : {
+   "news" : {
        "articles":[
            {
-               "title": "${TITLE}", 
-               "thumb_media_id": "${MEDIA_ID}",
-               "author": "Emby通知",
-               "content_source_url": "URL",
-               "digest": "${DIGE}",
-               "content": "${CONTENT}"
+               "title": "${TITLE}",
+               "description": "${DIGE}",
+               "picurl": "${PIC_URL}"
             }
        ]
    },
-   "safe":0,
    "enable_id_trans": 0,
    "enable_duplicate_check": 0,
    "duplicate_check_interval": 1800
 }
 EOF
-fi
-    
+
     "${TOOLS_DIR}"/curl -d @tmp_qywx -XPOST https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token="${KEY}"
     echo ""
     echo "删除临时文件"
