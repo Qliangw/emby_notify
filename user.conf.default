@@ -4,11 +4,22 @@ export CORP_SECRET=""
 export AGENTID=""
 export MEDIA_ID=""
 export TOUSER=""
-# pushplus配置
+# pushplus配置 
 export PUSHPLUS_TOKEN=""
 export PUSHPLUS_GROUP=""
 # 默认是wechat，可选【wechat/webhook/cp/mail】 详情：https://www.pushplus.plus/push1.html
 # 仅仅测试了wechat模式，其他未测试。
 export PUSHPLUS_CHANNEL="wechat"
-# bark配置
+# bark配置 
 BARK_KEY=""
+# TMDB_API需要官网注册获取：https://www.themoviedb.org/
+export TMDB_API_KEY=""
+# 选择0 1 2
+export SELECT_PIC=0
+
+# 自定义图片只需要PIC_URLx，其中x是大于10的正整数
+export PIC_URL10=""
+export PIC_URL11=""
+export PIC_URL12=""
+export PIC_URL13=""
+export PIC_URL14=""
