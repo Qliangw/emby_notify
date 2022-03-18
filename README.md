@@ -68,6 +68,18 @@
 
 
 
+## 默认推送图
+
+| 序号 | 展示                                                         |
+| ---- | ------------------------------------------------------------ |
+| 0    | <img src="https://s2.loli.net/2022/03/17/dQCgS5mhX2lBFs9.jpg" style="zoom:33%;" /> |
+| 1    | <img src="https://s2.loli.net/2022/03/17/amj947HFM3I5TPl.jpg" style="zoom:33%;" /> |
+| 2    | <img src="https://s2.loli.net/2022/03/17/6L9XIStKPChUHlV.jpg" style="zoom:33%;" /> |
+| 3   | <img src="https://s2.loli.net/2022/03/18/TBKDNwUdmPcZ8tX.png" style="zoom:33%;" /> |
+| 4    | <img src="https://s2.loli.net/2022/03/18/3wsMPkABUFyNO12.png" style="zoom:33%;" /> |
+
+
+
 ## 鸣谢
 
 - 感谢某群友提供的win版脚本。
