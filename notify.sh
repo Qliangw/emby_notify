@@ -155,31 +155,31 @@ elif [ $1 = "AM" ]; then
 elif [ $1 = "AT" ]; then
     # 2-剧名|3-剧情|4-tmdb|5-季x|6-集x
     echo "电视剧入库脚本入口："
-    TV_NAME=$2
-    TV_MSG=$3
+    MEDIA_NAME=$2
+    MEDIA_MSG=$3
     TMDB_ID=$4
     SEASON_NUM=$5
     EPISODE_NUM=$6
     SE_NUM="S${SEASON_NUM}E${EPISODE_NUM}"
     MEDIA_TYPE="tv"
     get_img_url
-    case $TV_NAME in
+    case $MEDIA_NAME in
         *"$SEASON_NULL"* )
-            TV_NAME="$(echo "$TV_NAME" | sed 's/\%season\.number\%/0/g')" ;;
+            MEDIA_NAME="$(echo "$MEDIA_NAME" | sed 's/\%season\.number\%/0/g')" ;;
     esac
 
-    if [ $TV_MSG = "%item.overview%" ]; then
-        TV_MSG="暂无简介"
+    if [ $MEDIA_MSG = "%item.overview%" ]; then
+        MEDIA_MSG="暂无简介"
     fi
 
-    old_str=$TV_MSG
+    old_str=$MEDIA_MSG
     get_new_str
-    TV_MSG=$new_str
+    MEDIA_MSG=$new_str
 
-    TV_NAME="$(echo "$TV_NAME" | sed 's/[ ][ ]*//g')"
-    TV_MSG="$(echo "$TV_MSG" | sed 's/[ ][ ]*//g')"
+    MEDIA_NAME="$(echo "$MEDIA_NAME" | sed 's/[ ][ ]*//g')"
+    MEDIA_MSG="$(echo "$MEDIA_MSG" | sed 's/[ ][ ]*//g')"
     TITLE="剧集入库：$MEDIA_NAME-${SE_NUM}"
-    MSG="剧情：$TV_MSG\n时间：$(date +'%H:%M:%S')"
+    MSG="剧情：$MEDIA_MSG\n时间：$(date +'%H:%M:%S')"
     parse_msg
     push_all
 elif [ $1 = "PM" ]; then
