@@ -14,7 +14,7 @@ export PUSHPLUS_CHANNEL="wechat"
 BARK_KEY=""
 # TMDB_API需要官网注册获取：https://www.themoviedb.org/
 export TMDB_API_KEY=""
-# 选择0 1 2
+# 选择0 1 2 3 4
 export SELECT_PIC=0
 
 # 自定义图片只需要PIC_URLx，其中x是大于10的正整数

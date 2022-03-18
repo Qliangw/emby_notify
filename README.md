@@ -11,10 +11,9 @@
 
 ## 通知功能
 
-- [x] 登录成功
-- [x] 登录失败
-- [x] 媒体入库
-- [x] 播放媒体
+- [x] 登录成功、失败
+- [x] 新媒体入库
+- [x] 播放开始、暂停
 - [x] 支持[企业微信](https://work.weixin.qq.com/) 、[Pushplus](https://www.pushplus.plus/)、[Bark](https://github.com/Finb/Bark)(仅iOS)通知
 - [x] 企业微信通知附带海报图
 
@@ -33,11 +32,13 @@
 4. 复制一份user.conf.default重命名为user.conf配置脚本中企业微信的参数（目前仅支持这一个通知方式）[参考这里](http://note.youdao.com/s/HMiudGkb "参考这里")
 5. **请仔细参考[sourceFiles文件](https://github.com/Qliangw/emby_notify/tree/main/sourceFiles "sourceFiles文件")中的截图**，把cmd命令更换为/bin/sh，~~运行的脚本更换为脚本路径及脚本名称即可~~
 
+
+
 ### 播放电影填写示例
 
 1. 进入emby服务端打开scripter-x创建任务
 
-   ![](https://raw.githubusercontent.com/Qliangw/emby_notify/main/pic/step1.png)
+![](https://raw.githubusercontent.com/Qliangw/emby_notify/main/img/step1.png)
 
 
 
@@ -56,12 +57,14 @@
 ### 参数
 |功能|功能参数|scriptx的参数|
 |---|---|:--|
-|播放电影 | PM       | "%username%" "%item.name%（%item.productionyear%）"  "%item.meta.tmdb%" |
-| 播放剧集 | PT       |"%username%" "%series.name%-S%season.number%E%episode.number%"  "%series.meta.tmdb%"|
-|登录失败 | LF       | %username% %device.remote.ipaddress% %password%|
-|登录成功| LS |%username% %device.remote.ipaddress%|
+|播放电影 | PM       | "%username%" "%item.name%（%item.productionyear%）" "%item.meta.tmdb%" "%item.overview%" %device.name% %playback.position.percentage% |
+| 播放剧集 | PT       |"%username%" "%series.name%" "%series.meta.tmdb%" "%item.overview%" "%device.name%" "%playback.position.percentage%" "%season.number%" "%episode.number%"|
+|登录失败 | LF       | %username% %device.remote.ipaddress% %password% %device.name% |
+|登录成功| LS |%username% %device.remote.ipaddress% %device.name%|
 |电影入库|AM|"%item.name%（%item.productionyear%）" "%item.overview%" "%item.meta.tmdb%"|
-|剧集入库|AT|"%series.name%--S%season.number%E%episode.number%" "%item.overview%" "%series.meta.tmdb%"|
+|剧集入库|AT|"%series.name%" "%item.overview%" "%series.meta.tmdb%" "%season.number%" "%episode.number%"|
+|停止播放电影|SM|"%username%" "%item.name%（%item.productionyear%）" "%item.meta.tmdb%" %device.name%|
+|停止播放剧集|ST|"%username%" "%series.name%" "%series.meta.tmdb%" "%device.name%" "%season.number%" "%episode.number%"|
 
 
 
@@ -69,4 +72,5 @@
 
 - 感谢某群友提供的win版脚本。
 - 感谢 [Hiccup](https://github.com/Hiccup90) 大佬提供的tmdb海报脚本
+- 感谢群友老哥们提供的默认推送图
 - **感谢鞭策我的堂众们（要不催就不更了**
