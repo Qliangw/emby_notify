@@ -57,13 +57,13 @@
 ### 参数
 |功能|功能参数|scriptx的参数|
 |---|---|:--|
-|播放电影 | PM       | "%username%" "%item.name%（%item.productionyear%）" "%item.meta.tmdb%" "%item.overview%" %device.name% %playback.position.percentage% |
-| 播放剧集 | PT       |"%username%" "%series.name%" "%series.meta.tmdb%" "%item.overview%" "%device.name%" "%playback.position.percentage%" "%season.number%" "%episode.number%"|
-|登录失败 | LF       | %username% %device.remote.ipaddress% %password% %device.name% |
-|登录成功| LS |%username% %device.remote.ipaddress% %device.name%|
+|登录失败 | LF       | "%username%" "%device.remote.ipaddress%" "%password%" "%device.name%" |
+|登录成功| LS |"%username%" "%device.remote.ipaddress%" "%device.name%"|
 |电影入库|AM|"%item.name%（%item.productionyear%）" "%item.overview%" "%item.meta.tmdb%"|
 |剧集入库|AT|"%series.name%" "%item.overview%" "%series.meta.tmdb%" "%season.number%" "%episode.number%"|
-|停止播放电影|SM|"%username%" "%item.name%（%item.productionyear%）" "%item.meta.tmdb%" %device.name%|
+|播放电影 | PM       | "%username%" "%item.name%（%item.productionyear%）" "%item.meta.tmdb%" "%item.overview%" "%device.name%" "%playback.position.percentage%" |
+| 播放剧集 | PT       |"%username%" "%series.name%" "%series.meta.tmdb%" "%item.overview%" "%device.name%" "%playback.position.percentage%" "%season.number%" "%episode.number%"|
+|停止播放电影|SM|"%username%" "%item.name%（%item.productionyear%）" "%item.meta.tmdb%" "%device.name%"|
 |停止播放剧集|ST|"%username%" "%series.name%" "%series.meta.tmdb%" "%device.name%" "%season.number%" "%episode.number%"|
 
 
