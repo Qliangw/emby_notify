@@ -14,15 +14,12 @@
 - [x] 登录成功、失败
 - [x] 新媒体入库
 - [x] 播放开始、暂停
-- [x] 支持[企业微信](https://work.weixin.qq.com/) 、[Pushplus](https://www.pushplus.plus/)、[Bark](https://github.com/Finb/Bark)(仅iOS)通知
-- [x] 企业微信通知附带海报图
+- [x] 支持Telegram、[企业微信](https://work.weixin.qq.com/) 、~~[Pushplus](https://www.pushplus.plus/)~~、~~[Bark](https://github.com/Finb/Bark)(仅iOS)~~(这俩好像还有点问题，有时间调整一下)通知
+- [x] 企业微信、telegram通知附带海报图
 
-**TODO**
+**TODO
 
-- [x] 添加其他通知工具的适配
-- [x] 通知附带海报图
 - [ ] 剧集通知模式为[S01E01] 或者 [第一季 第一集]【可选】
-- [x] 整合脚本，使其配置通用简洁
 
 ## [使用方法](https://qliangw.notion.site/emby_notify-898e4531fa314a9bbc15613778b116f6)
 
@@ -30,7 +27,7 @@
 ### 播放电影填写示例
 
    <img src="https://raw.githubusercontent.com/Qliangw/emby_notify/main/img/test1.jpg" style="zoom: 50%;" />
-   
+
    
 
 
