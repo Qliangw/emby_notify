@@ -24,47 +24,16 @@
 - [ ] 剧集通知模式为[S01E01] 或者 [第一季 第一集]【可选】
 - [x] 整合脚本，使其配置通用简洁
 
-## 使用方法
-
-1. 打开emby服务端的设置->插件
-2. 安装 [Emby Scripter-X ](https://github.com/AnthonyMusgrove/Emby-ScripterX "Emby Scripter-X ") ，重启emby服务器，若已安装请跳过步骤1、2
-3. 下载该脚本库到本地，放入emby有权限读取到的位置
-4. 复制一份user.conf.default重命名为user.conf配置脚本中企业微信的参数（目前仅支持这一个通知方式）[参考这里](http://note.youdao.com/s/HMiudGkb "参考这里")
-5. **请仔细参考[sourceFiles文件](https://github.com/Qliangw/emby_notify/tree/main/sourceFiles "sourceFiles文件")中的截图**，把cmd命令更换为/bin/sh，~~运行的脚本更换为脚本路径及脚本名称即可~~
-
+## [使用方法](https://qliangw.notion.site/emby_notify-898e4531fa314a9bbc15613778b116f6)
 
 
 ### 播放电影填写示例
-
-1. 进入emby服务端打开scripter-x创建任务
-
-![](https://raw.githubusercontent.com/Qliangw/emby_notify/main/img/step1.png)
-
-
-
-2. 编译任务
-
-   RUN这里填写 /path/to/notify.sh [功能参数]
-
-   <img src="https://raw.githubusercontent.com/Qliangw/emby_notify/main/img/demo2.png" style="zoom:50%;" />
-
-3. 通知效果
 
    <img src="https://raw.githubusercontent.com/Qliangw/emby_notify/main/img/test1.jpg" style="zoom: 50%;" />
    
    
 
-### 参数
-|功能|功能参数|scriptx的参数|
-|---|---|:--|
-|登录失败 | LF       | "%username%" "%device.remote.ipaddress%" "%password%" "%device.name%" |
-|登录成功| LS |"%username%" "%device.remote.ipaddress%" "%device.name%"|
-|电影入库|AM|"%item.name%（%item.productionyear%）" "%item.overview%" "%item.meta.tmdb%"|
-|剧集入库|AT|"%series.name%" "%item.overview%" "%series.meta.tmdb%" "%season.number%" "%episode.number%"|
-|播放电影 | PM       | "%username%" "%item.name%（%item.productionyear%）" "%item.meta.tmdb%" "%item.overview%" "%device.name%" "%playback.position.percentage%" |
-| 播放剧集 | PT       |"%username%" "%series.name%" "%series.meta.tmdb%" "%item.overview%" "%device.name%" "%playback.position.percentage%" "%season.number%" "%episode.number%"|
-|停止播放电影|SM|"%username%" "%item.name%（%item.productionyear%）" "%item.meta.tmdb%" "%device.name%"|
-|停止播放剧集|ST|"%username%" "%series.name%" "%series.meta.tmdb%" "%device.name%" "%season.number%" "%episode.number%"|
+
 
 
 
