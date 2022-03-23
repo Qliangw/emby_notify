@@ -72,6 +72,21 @@ function bark()
     "${TOOLS_DIR}"/curl --location --request GET "${BARK_URL}"
 }
 
+function telegram()
+{
+    TG_URL='https://api.telegram.org/bot'${TG_TOKEN}'/sendMessage'
+    cat>tmp_tg<<EOF
+{
+    "chat_id": "${TG_CHAT_ID}",
+    "text": "${TITLE}\n\n${DIGE}\n${PIC_URL}"
+}
+EOF
+    "${TOOLS_DIR}"/curl --location --request POST ${TG_URL} --header 'Content-Type: application/json' -d @tmp_tg
+    echo ""
+    echo "删除临时文件"
+    rm ${BASE_ROOT}/tmp_tg
+}
+
 
 if [ ! -n "${CORP_SECRET}" ]; then
     echo "未配置企业微信参数或者配置不全，跳过通知！"
@@ -91,3 +106,8 @@ else
     bark
 fi
 
+if [ ! -n "${TG_TOKEN}" ]; then
+    echo "未配置电报参数或者配置不全，跳过通知！"
+else
+    telegram
+fi

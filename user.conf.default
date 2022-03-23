@@ -1,22 +1,32 @@
-# 企业微信配置
+## 【一】推送配置
+# 1. 企业微信配置
 export CORPID=""
 export CORP_SECRET=""
 export AGENTID=""
 export MEDIA_ID=""
 export TOUSER=""
-# pushplus配置 
+
+# 2. pushplus配置 
 export PUSHPLUS_TOKEN=""
 export PUSHPLUS_GROUP=""
 # 默认是wechat，可选【wechat/webhook/cp/mail】 详情：https://www.pushplus.plus/push1.html
 # 仅仅测试了wechat模式，其他未测试。
 export PUSHPLUS_CHANNEL="wechat"
-# bark配置 
+
+# 3. bark配置
 BARK_KEY=""
+
+# 4. tg配置
+export TG_CHAT_ID=""
+export TG_TOKEN=""
+
+# 【二】TMDB配置
 # TMDB_API需要官网注册获取：https://www.themoviedb.org/
 export TMDB_API_KEY=""
-# 选择0 1 2 3 4
-export SELECT_PIC=0
 
+# 【三】默认图片选择
+# 选择0 1 2 3 4 
+export SELECT_PIC=4
 # 自定义图片只需要PIC_URLx，其中x是大于10的正整数
 export PIC_URL10=""
 export PIC_URL11=""
