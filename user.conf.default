@@ -14,7 +14,9 @@ export PUSHPLUS_GROUP=""
 export PUSHPLUS_CHANNEL="wechat"
 
 # 3. bark配置
-BARK_KEY=""
+# 可以修改为个人搭建的地址，若为官方的默认不修改
+export BARK_PUSH_URL="https://api.day.app"
+export BARK_KEY=""
 
 # 4. tg配置
 export TG_CHAT_ID=""
