@@ -13,7 +13,7 @@ PIC_URL="$4"
 function urlencode() {
    if [ ! $? -eq 0 ]; then echo -E "$1";return; fi
    encode_str=$(echo -E "$1" |sed "s/%/%%/g")
-   printf -- "$encode_str" | curl -Gso /dev/null -w %{url_effective} --data-urlencode @- "" |cut -c 3-
+   printf -- "$encode_str" | "${TOOLS_DIR}"/curl -Gso /dev/null -w %{url_effective} --data-urlencode @- "" |cut -c 3-
 }
 
 BARK_TITLE=$(echo $(urlencode ${TITLE}))
