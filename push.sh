@@ -10,6 +10,17 @@ TITLE="$1"
 DIGE="$2"
 PIC_URL="$4"
 
+function urlencode() {
+   if [ ! $? -eq 0 ]; then echo -E "$1";return; fi
+   encode_str=$(echo -E "$1" |sed "s/%/%%/g")
+   printf -- "$encode_str" | curl -Gso /dev/null -w %{url_effective} --data-urlencode @- "" |cut -c 3-
+}
+
+BARK_TITLE=$(echo $(urlencode ${TITLE}))
+BARK_DIGE=$(echo $(urlencode ${DIGE}))
+
+
+
 
 function qywx()
 {
@@ -68,7 +79,7 @@ EOF
 
 function bark()
 {
-    BARK_URL="https://api.day.app/${BARK_KEY}/${TITLE}/${DIGE}"
+    BARK_URL="${BARK_PUSH_URL}/${BARK_KEY}/${BARK_TITLE}/${BARK_DIGE}"
     "${TOOLS_DIR}"/curl --location --request GET "${BARK_URL}"
 }
 
